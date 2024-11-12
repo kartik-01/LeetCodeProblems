@@ -1,3 +1,4 @@
+# https://leetcode.com/problems/encode-and-decode-strings/
 class Solution:
     def encode(self, strs):
         # encodedString=""

@@ -1,3 +1,4 @@
+# https://leetcode.com/problems/product-of-array-except-self/description/
 def productExceptSelf(nums):
     n = len(nums)
     prefix, postfix, result = [1] * n, [1] * n, [1] * n
