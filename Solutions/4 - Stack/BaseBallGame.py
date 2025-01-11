@@ -21,7 +21,7 @@ class Solution:
 
 # Create an instance of the class
 sol = Solution()
-
+    
 # Call the method on the test cases
 result = sol.calPoints(["5","2","C","D","+"])
 print(result)
