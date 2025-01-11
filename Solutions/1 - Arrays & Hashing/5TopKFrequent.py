@@ -25,4 +25,23 @@ sol = Solution()
 result = sol.topKFrequent([1,1,1,2,2,3,4,4,4], 3)
 print(result)
 
-## Try efficient solution
+#Another Solution:
+class AnotherSolution:
+    def topKFrequent(self, nums, k):
+        count={}
+
+        for num in nums:
+            count[num] = 1 + count.get(num, 0)
+
+        # Step 2: Sort elements by frequency in descending order
+        sorted_elements = sorted(count.keys(), key=lambda x: count[x], reverse=True)
+
+        # Step 3: Return the top k elements
+        return sorted_elements[:k]
+    
+# Create an instance of the class
+sol = AnotherSolution()
+
+# Call the method on the test cases
+result = sol.topKFrequent([1,1,1,2,2,3,4,4,4], 3)
+print("Effifient Solution", result)

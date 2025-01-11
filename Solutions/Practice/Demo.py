@@ -11,3 +11,8 @@ count["c"] = 4
 
 print(countS["a"])
 print(countS[12.3])
+
+
+sortedList = [1,2,3,4,5]
+
+print(sorted(sortedList))
