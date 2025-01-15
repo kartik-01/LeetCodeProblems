@@ -13,6 +13,7 @@ print(countS["a"])
 print(countS[12.3])
 
 
-sortedList = [1,2,3,4,5]
+mystring = "6#params4#test"
 
-print(sorted(sortedList))
+print(mystring[1+1:1+1+6])
+

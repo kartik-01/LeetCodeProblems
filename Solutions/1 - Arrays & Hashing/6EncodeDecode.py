@@ -1,34 +1,30 @@
 # https://leetcode.com/problems/encode-and-decode-strings/
 class Solution:
     def encode(self, strs):
-        # encodedString=""
-        # for s in strs:
-        #     encodedString += str(len(s)) +'#' +s
-        # return encodedString
-    
-        return ''.join([str(len(s)) + "#" + s for s in strs])
+        encodedString =''
 
-    def decode(self, encoded_str):
-        decoded_strings, i = [], 0
-        
-        while i < len(encoded_str):
-            # Find the position of the next '#'
-            j = encoded_str.find('#', i)
+        for s in strs:
+            encodedString += str(len(s)) + '#' + s
+        return encodedString
+        # return ''.join([str(len(s)) + "#" + s for s in strs])
+        pass
 
-            print("decodedJ",j)
-            
-            # Extract the length of the next string
-            length = int(encoded_str[i:j])
+    def decode(self, encodedString):    # 6#params4#test
+        res = []
+        i = 0
 
-            print("length", length)
-            
-            # Extract the actual string using the length
-            decoded_strings.append(encoded_str[j+1:j+1+length])
-            
-            # Move to the next part of the encoded string
-            i = j + 1 + length
-        
-        return decoded_strings
+        while i < len(encodedString):
+            j=i
+            while encodedString[j] != '#':
+                j += 1
+            length = int(encodedString[i:j])
+
+            res.append(encodedString[j+1:j+1+length])
+
+            i = j+1+length
+
+        return res
+        pass
 
 # Create an instance of the class
 sol = Solution()
