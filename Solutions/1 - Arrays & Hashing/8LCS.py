@@ -1,3 +1,5 @@
+#https://leetcode.com/problems/longest-consecutive-sequence/
+
 class Solution:
     def lcs(self, nums):
         numSet = set(nums)
