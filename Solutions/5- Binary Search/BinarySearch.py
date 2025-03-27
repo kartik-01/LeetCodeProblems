@@ -12,8 +12,8 @@ class Solution:
             elif nums[mid] < target:
                 start = mid + 1
 
-            elif nums[mid] > target:
-                end = mid + 1
+            else:
+                end = mid - 1
         
         return -1
 

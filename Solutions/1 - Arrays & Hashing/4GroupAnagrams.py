@@ -19,3 +19,7 @@ sol = Solution()
 # Call the method on the test cases
 result = sol.groupAnagrams(["eat","tea","tan","ate","nat","bat"])
 print(result)
+
+
+takeinput = float(input("provide your input:"))
+print(takeinput)
