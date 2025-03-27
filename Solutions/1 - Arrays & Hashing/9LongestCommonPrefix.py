@@ -8,7 +8,7 @@ class Solution:
                 print('strs ',s)
                 print('s[i]', s[i], 'strs[0][i]', strs[0][i])
                 if i == len(s) or s[i] != strs[0][i]:
-                    print('res !',res)
+                    print('inner !',res)
                     return "".join(res) 
             res.append(strs[0][i]) 
             print('outer !!',res)
