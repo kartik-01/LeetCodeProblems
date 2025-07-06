@@ -4,19 +4,20 @@ from typing import List
 
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
-        left, right = 0, 1
+        l = 0
+        r = 1
+
         maxP = 0
 
-        while right < len(prices):
-            if prices[left] > prices[right]:
-                left = right
+        while r < len(prices):
+            if prices[l] < prices[r]:
+                currP = prices[r] - prices[l]
+                maxP = max(currP, maxP)
             else:
-                profit = prices[right] - prices[left]
-                maxP = max(maxP, profit)
-            right += 1
+                l = r
+            r+=1
         
         return maxP
-        pass
 
 # Create an instance of the class
 sol = Solution()

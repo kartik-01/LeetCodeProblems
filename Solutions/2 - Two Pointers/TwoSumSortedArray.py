@@ -4,17 +4,16 @@ from typing import List
 
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        left = 0
-        right = len(nums) - 1
+        l = 0
+        r = len(nums) - 1
 
-        while left < right:
-            currentSum = nums[left] + nums[right]
-            if currentSum > target:
-                right -= 1
-            elif currentSum < target:
-                left += 1
+        while l < r:
+            if nums[l] + nums[r] > target:
+                r-=1
+            elif nums[l] + nums[r] < target:
+                l+=1
             else:
-                return [left+1, right+1]
+                return [l+1, r+1]
 
 
 # Create an instance of the class
