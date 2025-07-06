@@ -30,3 +30,7 @@ mylist=[12,12,32,42]
 print(mylist)
 
 print(mylist[-1])
+
+s = "acca"
+
+print(len(s))

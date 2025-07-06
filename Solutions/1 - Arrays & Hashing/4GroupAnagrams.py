@@ -8,9 +8,12 @@ class Solution:
             count = [0] * 26
 
             for c in s:
+                print(c)
                 count[ord(c) - ord("a")] += 1
+                print(count)
 
             res[tuple(count)].append(s)
+        print(res)
         
         return list(res.values())
 
@@ -23,3 +26,5 @@ print(result)
 
 takeinput = float(input("provide your input:"))
 print(takeinput)
+
+print(ord('a'))

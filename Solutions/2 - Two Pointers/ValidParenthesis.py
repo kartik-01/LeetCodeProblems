@@ -25,7 +25,7 @@ class Solution:
 sol = Solution()
 
 # Call the method on the test cases
-result = sol.validPlindrome("kittik zz kittik")
+result = sol.validPlindrome("race a car")
 print(result)
 
 ## Try efficient solution
