@@ -2,16 +2,16 @@
 
 class Solution:
     def lcs(self, nums):
-        numSet = set(nums)
-        print(numSet)
+        charSet = set(nums)
+
         longest = 0
-        
-        for n in nums:
-            if (n-1) not in nums:
+
+        for num in charSet:
+            if num-1 not in charSet:
                 length = 1
-                while (n + length) in numSet:
+                while num+length in charSet:
                     length += 1
-                longest = max(length, longest)
+                longest = max(longest, length)
         
         return longest
         
