@@ -1,45 +1,25 @@
-from collections import Counter
+# https://leetcode.com/problems/permutation-in-string/
 class Solution:
     def checkInclusion(s1: str, s2: str) -> bool:
-        if len(s1) > len(s2):
-            return False
+        n1,n2 = len(s1), len(s2)
 
-        # Frequency arrays for s1 and the current window in s2
-        s1_count = [0] * 26
-        s2_count = [0] * 26
+        if n1 > n2: return False                    # Base edge case
 
-        for i in range(len(s1)):
-            s1_count[ord(s1[i]) - ord('a')] += 1
-            s2_count[ord(s2[i]) - ord('a')] += 1
+        s1_counts, s2_counts = [0] * 26, [0] * 26
 
-        matches = 0
-        for i in range(26):
-            if s1_count[i] == s2_count[i]:
-                matches += 1
+        for i in range(n1):                         # Calculate initial window of len s1
+            s1_counts[ord(s1[i]) - ord('a')] += 1
+            s2_counts[ord(s2[i]) - ord('a')] += 1
+        
+        if s1_counts == s2_counts: return True
 
-        l = 0
-        for r in range(len(s1), len(s2)):
-            if matches == 26:
-                return True
+        for i in range(n1,n2):                      # Calculate remaining window of s2 by sliding
+            s2_counts[ord(s2[i]) - ord('a')] += 1
+            s2_counts[ord(s2[i-n1]) - ord('a')] -= 1
 
-            # Add the next character to the window
-            index = ord(s2[r]) - ord('a')
-            s2_count[index] += 1
-            if s2_count[index] == s1_count[index]:
-                matches += 1
-            elif s2_count[index] == s1_count[index] + 1:
-                matches -= 1
-
-            # Remove the leftmost character from the window
-            index = ord(s2[l]) - ord('a')
-            s2_count[index] -= 1
-            if s2_count[index] == s1_count[index]:
-                matches += 1
-            elif s2_count[index] == s1_count[index] - 1:
-                matches -= 1
-            l += 1
-
-        return matches == 26
+            if s1_counts == s2_counts: return True  # keep checking if window matches after every +1 slide of window
+        
+        return False
 
     # Example usage:
     s1 = "abc"
