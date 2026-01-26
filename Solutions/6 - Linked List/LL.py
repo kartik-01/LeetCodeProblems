@@ -8,11 +8,13 @@ node1=Node(10)
 node2=Node(20)
 node3=Node(30)
 node4=Node(40)
+node5=Node(50)
 
 # Linking nodes to each other
 node1.next=node2
 node2.next=node3
 node3.next=node4
+node4.next=node5
 
 # Setting head of the nodes
 head = node1
@@ -49,19 +51,48 @@ while curr is not None:
     curr=curr.next
 print(None)
 
+# Delete the node at the end: O(n)
 curr=head
 
-# Delete the node at the end: O(n)
-if head is None:
+if curr is None:
     print("List is empty")
 
-elif head.next is None:
-    head=None
+elif curr.next is None:
+    curr=None
 
 else:
     while curr.next.next is not None:
         curr = curr.next
     curr.next = None
+
+curr = head
+
+while curr is not None:
+    print(curr.data, end=' -> ')
+    curr=curr.next
+print(None)
+
+# Deleting a particular node: O(n)
+curr = head
+
+while curr.next.data!=30:
+    curr = curr.next
+curr.next = curr.next.next
+
+curr = head
+
+while curr is not None:
+    print(curr.data, end=' -> ')
+    curr=curr.next
+print(None)
+
+# Adding an element at the end of the linkedlist
+
+curr = head
+newNode2 = Node(60)
+while curr.next is not None:
+    curr = curr.next
+curr.next = newNode2
 
 curr = head
 
