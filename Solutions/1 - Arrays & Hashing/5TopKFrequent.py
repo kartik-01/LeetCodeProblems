@@ -5,10 +5,10 @@ class Solution:
         freq = [[] for i in range(len(nums) + 1)] # Creates [ 0[], 1[], 2[], 3[], 4[], 5[], 6[]]
 
         for num in nums:                          # n : c
-            count[num] = 1 + count.get(num, 0)    # {1: 3, 2: 2, 3: 1}
+            count[num] = 1 + count.get(num, 0)    # {1: 3, 2: 2, 3: 1, 4:3}
         
         for n, c in count.items():
-            freq[c].append(n)                     # [ 0[], 1[3], 2[2], 3[1], 4[], 5[], 6[] ]
+            freq[c].append(n)                     # [ 0[], 1[3], 2[2], 3[1, 4], 4[], 5[], 6[] ]
         
         res = []
 
