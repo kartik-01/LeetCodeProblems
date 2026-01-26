@@ -1,8 +1,8 @@
 class Node:
     def __init__(self, data=None, next=None):
         self.data = data
-        self.next = None
-
+        self.next = next
+    
 # Creating node elements
 node1=Node(10)
 node2=Node(20)
@@ -22,27 +22,50 @@ curr = head
 while curr is not None:
     print(curr.data, end=" -> ")
     curr = curr.next
-print("None")
+print(None)
 
 # Adding element at the start: O(1) operation
 
-new_node = Node(50)
-new_node.next = head
-head = new_node
+newNode = Node(5)
+newNode.next = head
+head = newNode
 
 curr = head
-while curr is not None:
-    print(curr.data, end=" -> ")
-    curr = curr.next
-print("None")
 
-# Deleting the node from the beginning
+while curr is not None:
+    print(curr.data, end=' -> ')
+    curr=curr.next
+print(None)
+
+# Deleting the node from the beginning: O(1)
 
 if head is not None:
-    head = head.next
+    head=head.next
 
 curr = head
+
 while curr is not None:
-    print(curr.data, end=" -> ")
-    curr = curr.next
-print("None")
+    print(curr.data, end=' -> ')
+    curr=curr.next
+print(None)
+
+curr=head
+
+# Delete the node at the end: O(n)
+if head is None:
+    print("List is empty")
+
+elif head.next is None:
+    head=None
+
+else:
+    while curr.next.next is not None:
+        curr = curr.next
+    curr.next = None
+
+curr = head
+
+while curr is not None:
+    print(curr.data, end=' -> ')
+    curr=curr.next
+print(None)
