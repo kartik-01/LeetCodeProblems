@@ -1,15 +1,7 @@
-def recursion(n, left, right):
-    if left >= right:
-        return n
-    
-    n[left], n[right] = n[right], n[left]
-    
-    recursion(n, left + 1, right -1)
+from collections import Counter
 
+t = "ABC"
 
-n = list(input("Enter number: "))
-print(recursion(n, 0, len(n) - 1))
+need = Counter(t)
 
-st='Kartik'
-
-print(st[0])
+print(need)
