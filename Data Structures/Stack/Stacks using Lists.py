@@ -9,10 +9,10 @@ class Stack:
         self.values.append(x)
 
     def pop(self):
-        if self.is_empty():
-            raise IndexError("Cannot pop from an empty stack.")
-        return self.values.pop()
-        
+        if not self.is_empty():
+            self.values.pop()
+        return IndexError("Cannot pop from an empty stack.")
+    
     def peek(self):
         if not self.is_empty():
             return self.values[-1]
