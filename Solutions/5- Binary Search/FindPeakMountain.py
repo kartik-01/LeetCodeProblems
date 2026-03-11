@@ -15,11 +15,11 @@ class Solution:
             else:
                 start = mid + 1
 
-        return start
+        return end
     
 # Create an instance of the class
 sol = Solution()
 
 # Call the method on the test cases
-result = sol.peakIndexInMountainArray([0,10,5,2])
+result = sol.peakIndexInMountainArray([0,3,5,9,7,2,4,8,12,10,6,3])
 print(result)
