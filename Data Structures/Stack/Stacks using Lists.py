@@ -6,24 +6,29 @@ class Stack:
         return len(self.values) == 0
 
     def push(self, x):
-        self.values.append(x)
+        self.values.append(x)         # O(1)
 
     def pop(self):
-        if not self.is_empty():
-            self.values.pop()
-        return IndexError("Cannot pop from an empty stack.")
-    
+        if self.is_empty():
+            raise IndexError("Cannot pop from an empty stack.")
+        return self.values.pop()      # O(1)
+
     def peek(self):
-        if not self.is_empty():
-            return self.values[-1]
-        return None
+        if self.is_empty():
+            return None
+        return self.values[-1]        # O(1)
 
     def size(self):
         return len(self.values)
 
 my_stack = Stack()
 
-print(my_stack.pop())
+try:
+    print("pop on empty:", my_stack.pop())
+except IndexError as e:
+    print("pop on empty ->", e)
+
+my_stack.pop()
 print(my_stack.peek())
 print(my_stack.size())
 
@@ -32,6 +37,8 @@ my_stack.push(2)
 my_stack.push(3)
 my_stack.push(4)
 my_stack.push(5)
+my_stack.pop()
+my_stack.pop()
 
 my_stack.pop()
 print(my_stack.values)

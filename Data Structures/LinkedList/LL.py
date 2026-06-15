@@ -1,7 +1,7 @@
 class Node:
-    def __init__(self, data=None, next=None):
+    def __init__(self, data):
         self.data = data
-        self.next = next
+        self.next = None
     
 # Creating node elements
 node1=Node(10)
@@ -18,85 +18,105 @@ node4.next=node5
 
 # Setting head of the nodes
 head = node1
+
+
+# Traverse the LinkedList - O(n)
 curr = head
 
-# Traversing the LinkedList: O(n)
-while curr is not None:
+while curr:
     print(curr.data, end=" -> ")
     curr = curr.next
 print(None)
 
-# Adding element at the start: O(1) operation
-
-newNode = Node(5)
-newNode.next = head
-head = newNode
-
+# Insert at the start - O(1)
 curr = head
 
-while curr is not None:
-    print(curr.data, end=' -> ')
-    curr=curr.next
+node0=Node(5)
+node0.next = head
+head = node0
+# Traverse
+curr = head
+
+while curr:
+    print(curr.data, end=" -> ")
+    curr = curr.next
 print(None)
 
-# Deleting the node from the beginning: O(1)
+# Insert at the end - O(n)
+curr = head
+node5 = Node(50)
+
+if head is None:
+    head = node5
+else:
+    while curr.next:
+        curr = curr.next
+    curr.next = node5
+
+# Traverse
+curr = head
+
+while curr:
+    print(curr.data, end=" -> ")
+    curr = curr.next
+print(None)
+
+# Delete at the start - O(1)
+
+curr = head
 
 if head is not None:
-    head=head.next
+    head = head.next
+
+# Traverse
+curr = head
+
+while curr:
+    print(curr.data, end=" -> ")
+    curr = curr.next
+print(None)
+
+
+# Delete at the end - O(n)
 
 curr = head
 
-while curr is not None:
-    print(curr.data, end=' -> ')
-    curr=curr.next
-print(None)
-
-# Delete the node at the end: O(n)
-curr=head
-
-if curr is None:
-    print("List is empty")
-
+if head is None:
+    pass
 elif curr.next is None:
-    curr=None
-
+    head = None
 else:
-    while curr.next.next is not None:
+    while curr.next.next:
         curr = curr.next
     curr.next = None
 
+# Traverse
 curr = head
 
-while curr is not None:
-    print(curr.data, end=' -> ')
-    curr=curr.next
+while curr:
+    print(curr.data, end=" -> ")
+    curr = curr.next
 print(None)
 
-# Deleting a particular node: O(n)
+# Delete a particular node - O(n)
+
+curr = head
+target = 30
+
+if head is None:
+    pass
+elif head.data == target:
+    head = head.next
+else:
+    while curr.next and curr.next.data != target:
+        curr = curr.next
+    if curr.next:
+        curr.next = curr.next.next
+
+# Traverse
 curr = head
 
-while curr.next.data!=30:
+while curr:
+    print(curr.data, end=" -> ")
     curr = curr.next
-curr.next = curr.next.next
-
-curr = head
-
-while curr is not None:
-    print(curr.data, end=' -> ')
-    curr=curr.next
-print(None)
-
-# Adding an element at the end of the linkedlist
-
-curr = head
-newNode2 = Node(60)
-while curr.next is not None:
-    curr = curr.next
-curr.next = newNode2
-
-curr = head
-
-while curr is not None:
-    print(curr.data, end=' -> ')
-    curr=curr.next
 print(None)
